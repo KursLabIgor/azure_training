@@ -51,7 +51,7 @@
     },
     "variables": {
       "vmName": "rdp-vm",
-      "namingInfix":"rdp",
+      "namingInfix":"[concat('rdp', 'itrs')]",
       "networkInterfaceName": "[concat(variables('vmName'), '-nic')]",
       "networkInterfaceResourceId": "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaceName'))]",
       "networkInterfaceIpConfigurationsName": "[concat(variables('vmName'), '-ipconfig')]",
