@@ -1,0 +1,85 @@
+{
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location":{
+            "type": "string",
+            "value": "centralus"
+        },
+        "vmNamePrefix": {
+            "type": "string",
+            "value": "myvm"
+        },
+        "adminUsername": {
+            "type": "string",
+            "value": "MyUser"
+        },
+        "adminPassword": {
+            "type": "securestring",
+            "value": "I73r11484it&0"
+        },
+        "storageAccountName": {
+            "type": "string",
+            "value": "mystoragelohikaedu"
+        },
+        "dnsNameforLBIP": {
+            "type": "string",
+            "value": "lb-my"
+        },
+        "imagePublisher": {
+            "type": "string",
+            "value": "MicrosoftWindowsServer",
+            "metadata": {
+                "description": "Image Publisher"
+            }
+        },
+        "imageOffer": {
+            "type": "string",
+            "value": "WindowsServer",
+            "metadata": {
+                "description": "Image Offer"
+            }
+        },
+        "imageSKU": {
+            "type": "string",
+            "value": "2012-R2-Datacenter",
+            "metadata": {
+                "description": "Image SKU"
+            }
+        },
+        "lbName": {
+            "type": "string",
+            "value": "myLB",
+            "metadata": {
+                "description": "Load Balancer name"
+            }
+        },
+        "nicNamePrefix": {
+            "type": "string",
+            "value": "nic",
+            "metadata": {
+                "description": "Network Interface name prefix"
+            }
+        },
+        "publicIPAddressName": {
+            "type": "string",
+            "value": "myPublicIP",
+            "metadata": {
+                "description": "Public IP Name"
+            }
+        },
+        "vnetName": {
+            "type": "string",
+            "value": "myVNET",
+            "metadata": {
+                "description": "VNET name"
+            }
+        },
+        "vmSize": {
+            "type": "string",
+            "value": "Standard_D1",
+            "metadata": {
+                "description": "Size of the VM"
+            }
+        }
+    }
+}
