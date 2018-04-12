@@ -51,11 +51,12 @@
     },
     "variables": {
       "vmName": "rdp-vm",
+      "namingInfix":"rdp",
       "networkInterfaceName": "[concat(variables('vmName'), '-nic')]",
       "networkInterfaceResourceId": "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaceName'))]",
       "networkInterfaceIpConfigurationsName": "[concat(variables('vmName'), '-ipconfig')]",
       "subnetResourceId": "[resourceId(resourceGroup().name, 'Microsoft.Network/virtualNetworks/subnets', parameters('existingVnetName'), parameters('existingSubNetName'))]",
-      "publicIPAddressName": "[concat(variables('namingInfix'), 'pip')]",
+      "publicIPAddressName": "[concat(variables('namingInfix'), '-rdp-pip')]",
       "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
       "vmImageReference": {
         "publisher": "MicrosoftWindowsServer",
@@ -73,7 +74,7 @@
             "properties": {
               "publicIPAllocationMethod": "Dynamic",
               "dnsSettings": {
-                "domainNameLabel": "[variables('longNamingInfix')]"
+                "domainNameLabel": "[variables('namingInfix')]"
               }
             }
           },
