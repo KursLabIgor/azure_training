@@ -59,6 +59,10 @@
     "subnetWeb":{
       "type": "string",
       "value": "[variables('subnetRdp')]"
+    },
+    "vnetName":{
+      "type": "string",
+      "value": "[variables('virtualNetworkName')]"
     }
   }
 }
