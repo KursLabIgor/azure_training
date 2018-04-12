@@ -3,6 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         
+        
     },
     "variables": {
         
@@ -45,6 +46,30 @@
                 }
 
             }
-    }
+        },
+        {
+            "apiVersion": "2017-05-10",
+            "name": "template-frontend",
+            "type": "Microsoft.Resources/deployments",
+            "properties":{
+                "mode": "Incremental",
+                "templateLink": {
+                "uri": "https://raw.githubusercontent.com/KursLabIgor/azure_training/master/template-plb-vmss.json",
+                "contentVersion": "1.0.0.0"
+                },
+                "parameters":{
+                    "vmssName": {
+                        "value": "week1"
+                    },
+                    "existingWebSubnet":{
+                        "value": "[reference('template-infra').outputs.subnetWeb.value]"
+                    },
+                    "adminPassword":{
+                        "value": "securePass0$"
+                    }
+                }
+
+            }
+        }
     ]
 }
