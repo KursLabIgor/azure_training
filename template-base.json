@@ -1,0 +1,50 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        
+    },
+    "variables": {
+        
+    },
+    "resources": [
+        {
+            "apiVersion": "2017-05-10",
+            "name": "template-infra",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                  "uri": "https://raw.githubusercontent.com/KursLabIgor/azure_training/master/template-infra.json",
+                  "contentVersion": "1.0.0.0"
+                },
+                "parameters": {                 
+                }
+            }
+        },
+        {
+            "apiVersion": "2017-05-10",
+            "name": "template-jumpbox",
+            "type": "Microsoft.Resources/deployments",
+            "properties":{
+                "mode": "Incremental",
+                "templateLink": {
+                "uri": "https://raw.githubusercontent.com/KursLabIgor/azure_training/master/template-jbox.json",
+                "contentVersion": "1.0.0.0"
+                },
+                "parameters":{
+                    "existingVnetName": {
+                        "value": "[reference('template-infra').outputs.vnetName.value]"
+                    },
+                    "existingSubnetName":{
+                        "value": "[reference('template-infra').outputs.subnetRdp.value]"
+                    },
+                    "adminPassword":{
+                        "value": "securePass0$"
+                    }
+                }
+
+            }
+    }
+    ]
+}
