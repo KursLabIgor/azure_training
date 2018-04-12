@@ -56,8 +56,8 @@
       "networkInterfaceResourceId": "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaceName'))]",
       "networkInterfaceIpConfigurationsName": "[concat(variables('vmName'), '-ipconfig')]",
       "subnetResourceId": "[resourceId(resourceGroup().name, 'Microsoft.Network/virtualNetworks/subnets', parameters('existingVnetName'), parameters('existingSubNetName'))]",
-      "publicIPAddressName": "[concat(variables('namingInfix'), '-rdp-pip')]",
-      "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
+      "publicIPAddressName": "[concat(variables('namingInfix'), '-pip')]",
+      "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))]",
       "vmImageReference": {
         "publisher": "MicrosoftWindowsServer",
         "offer": "WindowsServer",
@@ -91,7 +91,7 @@
               "properties": {
                 "privateIPAllocationMethod": "Dynamic",
                 "publicIPAddress": {
-                  "id": "[variables('publicIPAddressName')]"
+                  "id": "[variables('publicIPAddressID')]"
                 },
                 "subnet": {
                   "id": "[variables('subnetResourceId')]"
