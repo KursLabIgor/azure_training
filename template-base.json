@@ -88,6 +88,9 @@
                     "existingWebSubnet":{
                         "value": "[reference('template-infra').outputs.subnetWeb.value]"
                     },
+                    "existingVnet":{
+                        "value": "[reference('template-infra').outputs.vnetName.value]"
+                    },
                     "adminPassword":{
                         "value": "securePass0$"
                     }

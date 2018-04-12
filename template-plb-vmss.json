@@ -91,12 +91,19 @@
       "metadata": {
         "description": "Exisiting subnet for frontend"
       }
+    },
+    "existingVnet":{
+      "type": "string",
+      "metadata": {
+        "description": "Exisiting vnet"
+      }
     }
   },
   "variables": {
     "namingInfix": "[toLower(substring(concat(parameters('vmssName'), uniqueString(resourceGroup().id)), 0, 9))]",
     "longNamingInfix": "[toLower(parameters('vmssName'))]",
     "publicIPAddressName": "[concat(variables('namingInfix'), 'pip')]",
+    "virtualNetworkName": "[parameters('existingVnet')]",
     "subnetWeb": "[parameters('existingWebSubnet')]",
     "loadBalancerName": "[concat(variables('namingInfix'), 'lb')]",
     "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
@@ -368,14 +375,6 @@
     "applicationUrl": {
       "type": "string",
       "value": "[concat('http://', reference(variables('publicIPAddressName')).dnsSettings.fqdn, '/MyApp')]"
-    },
-    "subnetRdp":{
-      "type": "string",
-      "value": "[variables('subnetName2')]"
-    },
-    "subnetWeb":{
-      "type": "string",
-      "value": "[variables('subnetWeb')]"
     }
   }
 }
