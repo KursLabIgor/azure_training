@@ -49,6 +49,30 @@
         },
         {
             "apiVersion": "2017-05-10",
+            "name": "template-sql",
+            "type": "Microsoft.Resources/deployments",
+            "properties":{
+                "mode": "Incremental",
+                "templateLink": {
+                "uri": "https://raw.githubusercontent.com/KursLabIgor/azure_training/master/template-sql-server.json",
+                "contentVersion": "1.0.0.0"
+                },
+                "parameters":{
+                    "prefix": {
+                        "value": "week1"
+                    },
+                    "databaseName":{
+                        "value": "simple-db"
+                    },
+                    "administratorLoginPassword":{
+                        "value": "securePass0$"
+                    }
+                }
+
+            }
+        },
+        {
+            "apiVersion": "2017-05-10",
             "name": "template-frontend",
             "type": "Microsoft.Resources/deployments",
             "properties":{
