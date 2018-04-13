@@ -32,7 +32,7 @@
     },
     "instanceCount": {
       "type": "int",
-      "defaultValue": 2,
+      "defaultValue": 1,
       "metadata": {
         "description": "Number of VM instances (100 or less)."
       },
@@ -230,7 +230,7 @@
         "capacity": "[parameters('instanceCount')]"
       },
       "properties": {
-        "overprovision": true,
+        "overprovision": false,
         "upgradePolicy": {
           "mode": "Manual"
         },
