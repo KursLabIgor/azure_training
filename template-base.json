@@ -93,6 +93,9 @@
                     },
                     "adminPassword":{
                         "value": "securePass0$"
+                    },
+                    "dbConnectionString":{
+                        "value": "[reference('template-sql').outputs.DbAdoConnString.value]"
                     }
                 }
 
