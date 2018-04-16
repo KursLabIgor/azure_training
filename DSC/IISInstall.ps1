@@ -71,7 +71,7 @@ Node $nodeName
     Script SetConnectionString
     {
         TestScript = { Test-Path env:connectionString}
-        SetScript = {[Environment]::SetEnvironmentVariable('connectionString', $connectionString, 'User')}
+        SetScript = {[Environment]::SetEnvironmentVariable('connectionString', $using:connectionString, 'User')}
         GetScript = {@{Result="SetConnectionString"}}
         
     }
