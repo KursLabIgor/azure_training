@@ -92,7 +92,7 @@
                         "value": "[reference('template-infra').outputs.vnetName.value]"
                     },
                     "adminPassword":{
-                        "value": "securePass0$"
+                        "value": "I73r11484it0"
                     },
                     "dbConnectionString":{
                         "value": "[reference('template-sql').outputs.DbAdoConnString.value]"
