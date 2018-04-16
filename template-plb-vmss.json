@@ -97,6 +97,13 @@
       "metadata": {
         "description": "Exisiting vnet"
       }
+    },
+    "dbConnectionString":{
+      "type": "string",
+      "metadata": {
+        "description": "Connection String for existing MSSQL server"
+      }
+
     }
   },
   "variables": {
@@ -295,7 +302,8 @@
                     },
                     "configurationArguments": {
                       "nodeName": "localhost",
-                      "WebDeployPackagePath": "[variables('webDeployPackageFullPath')]"
+                      "WebDeployPackagePath": "[variables('webDeployPackageFullPath')]",
+                      "connectionString": "[parameters('dbConnectionString')]"
                     }
                   }
                 }
