@@ -71,7 +71,7 @@ Node $nodeName
     Script SetConnectionString
     {
         TestScript = {$false}
-        SetScript = {[Environment]::SetEnvironmentVariable("Data:ConnectionString", "$connectionString",[EnvironmentVariableTarget]::Machine)}
+        SetScript = {[Environment]::SetEnvironmentVariable("connectionString", "$connectionString",[EnvironmentVariableTarget]::Machine)}
         GetScript = {@{Result="SetConnectionString"}}
         
     }
@@ -118,9 +118,14 @@ Node $nodeName
 		$WebClient = New-Object -TypeName System.Net.WebClient
 		$Destination= "C:\WindowsAzure\WebApplication.zip" 
         $WebClient.DownloadFile($using:WebDeployPackagePath,$destination)
-        $Argument = '-source:package="C:\WindowsAzure\WebApplication.zip" -dest:auto,ComputerName="localhost", -verb:sync -allowUntrusted'
-		$MSDeployPath = (Get-ChildItem "HKLM:\SOFTWARE\Microsoft\IIS Extensions\MSDeploy" | Select -Last 1).GetValue("InstallPath")
-        Start-Process "$MSDeployPath\msdeploy.exe" $Argument -Verb runas 
+        #$Argument = '-source:package="C:\WindowsAzure\WebApplication.zip" -dest:auto,ComputerName="localhost", -verb:sync -allowUntrusted'
+		#$MSDeployPath = (Get-ChildItem "HKLM:\SOFTWARE\Microsoft\IIS Extensions\MSDeploy" | Select -Last 1).GetValue("InstallPath")
+        #Start-Process "$MSDeployPath\msdeploy.exe" $Argument -Verb runas 
+		New-Item -ItemType Directory c:\webapi
+		Expand-Archive C:\temp\WebApplication.zip c:\webapi
+		Remove-WebSite -Name "Default Web Site"
+		Set-ItemProperty IIS:\AppPools\DefaultAppPool\ managedRuntimeVersion ""
+		New-Website -Name "WebApiTestApp" -Port 80 -PhysicalPath C:\webapi\ -ApplicationPool DefaultAppPool
         }
 	}
   }
