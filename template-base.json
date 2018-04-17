@@ -41,7 +41,7 @@
                         "value": "[reference('template-infra').outputs.subnetRdp.value]"
                     },
                     "adminPassword":{
-                        "value": "securePass0$"
+                        "value": "I73r11484it0"
                     }
                 }
 
@@ -65,7 +65,7 @@
                         "value": "simpledb"
                     },
                     "administratorLoginPassword":{
-                        "value": "securePass0$"
+                        "value": "I73r11484it0"
                     }
                 }
 
