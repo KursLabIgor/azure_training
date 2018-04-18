@@ -114,7 +114,7 @@ Node $nodeName
         $WebClient.DownloadFile($using:WebDeployPackagePath,$destination)
 		Out-File -FilePath "C:\sql.txt" -InputObject $using:connectionString
 		New-Item -ItemType Directory c:\webapi
-		[Environment]::SetEnvironmentVariable("connectionString", "$using:connectionString",[EnvironmentVariableTarget]::User)
+		[Environment]::SetEnvironmentVariable("connectionString", "$using:connectionString",[EnvironmentVariableTarget]::Machine)
 		Remove-WebSite -Name "Default Web Site"
 		New-Website -Name "MyApp" -Port 80 -PhysicalPath C:\webapi\ -ApplicationPool ".NET v4.5"
         $Argument = '-source:package="C:\WindowsAzure\WebApplication.zip" -dest:auto,ComputerName="localhost", -verb:sync -allowUntrusted'
