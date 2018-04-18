@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <setParameter name="IIS Web Application Name" value="Default Web Site/MyApp" />
+  <setParameter name="IIS Web Application Name" value="MyApp" />
   <setParameter name="DefaultConnection-Web.config Connection String" value="Server=tcp:week1-sqlserver-si2wkntnx74tm.database.windows.net,1433;Initial Catalog=simpledb;Persist Security Info=False;User ID=sqladmin;Password=I73r11484it0;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" />
 </parameters>
